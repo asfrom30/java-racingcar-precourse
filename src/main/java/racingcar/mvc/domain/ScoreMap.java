@@ -1,8 +1,7 @@
 package racingcar.mvc.domain;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
+import java.util.Map.Entry;
 
 public class ScoreMap {
 
@@ -28,18 +27,27 @@ public class ScoreMap {
     }
 
     public String whoIsMax() {
-//        int maxAt = 0;
-//
-//        for (int i = 0; i < scores.length; i++) {
-//            maxAt = scores[i] > scores[maxAt] ? i : maxAt;
-//        }
-//
-//        return names[maxAt];
-        return "pobi";
+        Comparator<Entry<String, Integer>> comparator = new Comparator<Entry<String, Integer>>() {
+            @Override
+            public int compare(Entry<String, Integer> e1, Entry<String, Integer> e2) {
+                return e1.getValue().compareTo(e2.getValue());
+            }
+        };
+
+        Entry<String, Integer> maxEntry = Collections.max(this.scores.entrySet(), comparator);
+        return maxEntry.getKey();
     }
 
-    public void whoIsMin() {
+    public String whoIsMin() {
+        Comparator<Entry<String, Integer>> comparator = new Comparator<Entry<String, Integer>>() {
+            @Override
+            public int compare(Entry<String, Integer> e1, Entry<String, Integer> e2) {
+                return e1.getValue().compareTo(e2.getValue());
+            }
+        };
 
+        Entry<String, Integer> minEtnry = Collections.min(this.scores.entrySet(), comparator);
+        return minEtnry.getKey();
     }
 
     public Iterator<Map.Entry<String, Integer>> iterator() {
