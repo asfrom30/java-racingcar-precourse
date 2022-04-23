@@ -2,6 +2,8 @@ package racingcar.mvc.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Collections;
+
 public class Game {
 
     private String names[];
@@ -31,7 +33,17 @@ public class Game {
     }
 
     public boolean hasNextRound() {
-        if(roundIndex < this.numberOfRound) return true;
+        if (roundIndex < this.numberOfRound) return true;
         else return false;
+    }
+
+    public String getWinnerName() {
+        int maxAt = 0;
+
+        for (int i = 0; i < scores.length; i++) {
+            maxAt = scores[i] > scores[maxAt] ? i : maxAt;
+        }
+
+        return names[maxAt];
     }
 }

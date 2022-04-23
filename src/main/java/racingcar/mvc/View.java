@@ -16,4 +16,8 @@ public class View {
             System.out.println(name + " : " + String.join("", textList));
         }
     }
+
+    public static void renderWinner(String name) {
+        System.out.println("최종 우승자는 " + name + " 입니다.");
+    }
 }

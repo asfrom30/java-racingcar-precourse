@@ -21,7 +21,7 @@ public class Application {
             View.renderScoreBoard(names, scores);
         }
 
-        System.out.println("최종 우승자는 pobi 입니다.");
+        View.renderWinner(game.getWinnerName());
     }
 
     static String[] parseNames(String str) {
