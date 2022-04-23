@@ -3,8 +3,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.mvc.View;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Application {
@@ -19,23 +19,13 @@ public class Application {
             int numberOfGame = Integer.parseInt(secondInput);
 
             int[] scores = new int[names.length];
-            for (int i = 0; i < numberOfGame ; i++) {
+            for (int i = 0; i < numberOfGame; i++) {
                 for (int j = 0; j < names.length; j++) {
                     String name = names[j];
                     int temp = Randoms.pickNumberInRange(0, 9);
-                    if(4 <= temp) scores[j]++;
+                    if (4 <= temp) scores[j]++;
                 }
-
-                for (int j = 0; j < names.length; j++) {
-                    String name = names[j];
-                    int myScore = scores[j];
-
-                    ArrayList<String> textList = new ArrayList<>();
-                    for (int k = 0; k < myScore; k++) {
-                        textList.add("-");
-                    }
-                    System.out.println(name + " : " + String.join("", textList));
-                }
+                View.renderScoreBoard(names, scores);
             }
             System.out.println("최종 우승자는 pobi 입니다.");
         } else {
