@@ -5,8 +5,6 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.mvc.View;
 import racingcar.mvc.domain.Game;
 
-import java.util.Arrays;
-
 public class Application {
 
     public static void main(String[] args) {
@@ -15,11 +13,14 @@ public class Application {
 
         int numberOfRound = Integer.parseInt(Console.readLine());
 
-        int[] scores = new int[names.length];
-        for (int i = 0; i < numberOfRound; i++) {
-            Game.execute(names, scores);
+        Game game = new Game(names, numberOfRound);
+
+        while (game.hasNextRound()) {
+            game.runOneRound();
+            int[] scores = game.getCurrentScores();
             View.renderScoreBoard(names, scores);
         }
+
         System.out.println("최종 우승자는 pobi 입니다.");
     }
 
