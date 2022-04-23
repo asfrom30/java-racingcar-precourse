@@ -2,19 +2,17 @@ package racingcar;
 
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.mvc.Controller;
 import racingcar.mvc.View;
 import racingcar.mvc.domain.Game;
 
 public class Application {
 
     public static void main(String[] args) {
-        String[] names = parseNames(Console.readLine());
-        if (!isValid(names)) System.out.println("[ERROR]");
-
-        int numberOfRound = Integer.parseInt(Console.readLine());
+        String[] names =  Controller.waitTypePlayerNames();
+        int numberOfRound = Controller.waitTypeHowManyRound();;
 
         Game game = new Game(names, numberOfRound);
-
         while (game.hasNextRound()) {
             game.runOneRound();
             int[] scores = game.getCurrentScores();
@@ -22,22 +20,5 @@ public class Application {
         }
 
         View.renderWinner(game.getWinnerName());
-    }
-
-    static String[] parseNames(String str) {
-        return str.split(",");
-    }
-
-    static boolean isValid(String[] names) {
-        for (String name : names) {
-            if (!isValid(name)) return false;
-        }
-        return true;
-    }
-
-    static boolean isValid(String name) {
-        if (name.length() < 5) return true;
-        else return false;
-
     }
 }
