@@ -1,10 +1,10 @@
 package racingcar;
 
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.mvc.Controller;
 import racingcar.mvc.View;
 import racingcar.mvc.domain.Game;
+import racingcar.mvc.domain.ScoreMap;
 
 public class Application {
 
@@ -15,8 +15,8 @@ public class Application {
         Game game = new Game(names, numberOfRound);
         while (game.hasNextRound()) {
             game.runOneRound();
-            int[] scores = game.getCurrentScores();
-            View.renderScoreBoard(names, scores);
+            ScoreMap scoreMap = game.getScoreMap();
+            View.renderScoreBoard(scoreMap);
         }
 
         View.renderWinner(game.getWinnerName());

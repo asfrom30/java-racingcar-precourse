@@ -1,19 +1,25 @@
 package racingcar.mvc;
 
+import racingcar.mvc.domain.ScoreMap;
+
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 
 public class View {
 
-    public  static void renderScoreBoard(String[] names, int[] scores) {
-        for (int j = 0; j < names.length; j++) {
-            String name = names[j];
-            int myScore = scores[j];
+    public  static void renderScoreBoard(ScoreMap scoreMap) {
+        Iterator<Map.Entry<String, Integer>> entries = scoreMap.iterator();
+        while (entries.hasNext()) {
+            Map.Entry<String, Integer> entry = entries.next();
+            String playerName = entry.getKey();
+            int score = entry.getValue();
 
             ArrayList<String> textList = new ArrayList<>();
-            for (int k = 0; k < myScore; k++) {
+            for (int k = 0; k < score; k++) {
                 textList.add("-");
             }
-            System.out.println(name + " : " + String.join("", textList));
+            System.out.println(playerName + " : " + String.join("", textList));
         }
     }
 
