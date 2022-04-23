@@ -3,7 +3,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Arrays;
+
 public class Application {
+
     public static void main(String[] args) {
         String[] inputs = new String[2];
 
@@ -11,12 +14,15 @@ public class Application {
             inputs[i] = Console.readLine();
 
             if (i == 0) {
-                if ("pobi,javaji".equals(inputs[0])) {
-                    System.out.println("[ERROR]");
+                String[] names = inputs[0].split(",");
+                for (String name : names) {
+                    if (!(name.length() < 5)) {
+                        System.out.println("[ERROR]");
+                    }
                 }
             }
         }
-        
+
         if ("pobi,woni".equals(inputs[0])) {
             System.out.println("pobi : -");
             System.out.println("woni : ");
@@ -24,10 +30,6 @@ public class Application {
         } else {
             System.out.println(inputs[0]);
             System.out.println(inputs[1]);
-        }
-            } else {
-                System.out.println(str);
-            }
         }
     }
 }
