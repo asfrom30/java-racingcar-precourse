@@ -9,8 +9,9 @@
 
 - scoreOne(), whoIsMax(), whoIsMin(),
 
-6. ScoreMap의 테스트 보강
+6. ScoreMap 구현 보강
 
-- whoIsMax() 함수 구현하기
+- 테스트 보강
+- whoIsMax(), whoIsMin() 함수 구현하기
 
 7. refactor: 뷰쪽 메서드 쪼개기
