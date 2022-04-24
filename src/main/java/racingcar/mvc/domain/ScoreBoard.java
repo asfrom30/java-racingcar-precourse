@@ -26,10 +26,6 @@ public class ScoreBoard {
         this.scoreMap.replace(playerName, ++myScore);
     }
 
-    public Iterator<Map.Entry<String, Integer>> iterator() {
-        return this.scoreMap.entrySet().iterator();
-    }
-
     public String[] whoAreTopScorer() {
         int max = 0;
         for (Entry<String, Integer> entry: this.scoreMap.entrySet()) {
@@ -39,24 +35,6 @@ public class ScoreBoard {
         ArrayList<String> playerNames = new ArrayList<String>();
         for (Entry<String, Integer> entry: this.scoreMap.entrySet()) {
             if(entry.getValue() == max) playerNames.add(entry.getKey());
-        }
-
-        return playerNames.toArray(new String[playerNames.size()]);
-    }
-
-    public String[] whoAreBottomScorer() {
-        Comparator<Entry<String, Integer>> comparator = new Comparator<Entry<String, Integer>>() {
-            @Override
-            public int compare(Entry<String, Integer> e1, Entry<String, Integer> e2) {
-                return e1.getValue().compareTo(e2.getValue());
-            }
-        };
-
-        Entry<String, Integer> minEntry = Collections.min(this.scoreMap.entrySet(), comparator);
-
-        ArrayList<String> playerNames = new ArrayList<String>();
-        for (Entry<String, Integer> entry: this.scoreMap.entrySet()) {
-            if(entry.getValue() == minEntry.getValue()) playerNames.add(entry.getKey());
         }
 
         return playerNames.toArray(new String[playerNames.size()]);

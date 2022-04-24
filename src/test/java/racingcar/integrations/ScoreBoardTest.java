@@ -17,7 +17,6 @@ public class ScoreBoardTest {
         scoreBoard.scoreOne("A");
 
         assertThat(scoreBoard.whoAreTopScorer()).containsExactly("A");
-        assertThat(scoreBoard.whoAreBottomScorer()).containsExactly("B");
     }
 
     @Test
@@ -31,7 +30,6 @@ public class ScoreBoardTest {
         scoreBoard.scoreOne("B");
 
         assertThat(scoreBoard.whoAreTopScorer()).containsExactly("B");
-        assertThat(scoreBoard.whoAreBottomScorer()).containsExactly("A");
     }
 
     @Test
@@ -48,7 +46,6 @@ public class ScoreBoardTest {
         scoreBoard.scoreOne("C");
 
         assertThat(scoreBoard.whoAreTopScorer()).containsExactly("A");
-        assertThat(scoreBoard.whoAreBottomScorer()).containsExactly("C");
     }
 
     @Test
