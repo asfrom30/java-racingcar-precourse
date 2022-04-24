@@ -34,4 +34,4 @@
 
 - refactor: 뷰쪽 메서드 쪼개기
 - refactor: View쪽 반복되는 String.join() 하나로 합치기.
-- Player와 Score를 더한 개념으로 추상화를 한번 더 하는게 좋을까?
+- Player와 Score를 더한 개념으로 추상화를 한번 더 하는게 좋을까? (PlayerScore)

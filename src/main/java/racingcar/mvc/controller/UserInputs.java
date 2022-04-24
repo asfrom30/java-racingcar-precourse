@@ -9,6 +9,7 @@ public class UserInputs {
 
     private String[] playerNames;
     private Integer numberOfRound;
+    private Integer trialNumber = 0;
 
 
     public boolean isAllValid() {
@@ -19,6 +20,15 @@ public class UserInputs {
 
         return true;
     }
+
+    public void increaseOneTrial() {
+        this.trialNumber = this.trialNumber + 1;
+    }
+
+    public Integer getTrialNumber(){
+        return this.trialNumber;
+    }
+
 
     public String[] getPlayerNames() {
         return this.playerNames;
@@ -39,4 +49,5 @@ public class UserInputs {
     public void setNumberOfRound(Integer number) {
         this.numberOfRound = number;
     }
+
 }

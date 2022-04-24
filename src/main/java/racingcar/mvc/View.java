@@ -24,8 +24,8 @@ public class View {
         System.out.println("최종 우승자는 " + String.join(", ", ArrayUtil.toArrayList(names)) + " 입니다.");
     }
 
-    public static void renderException(Exception e) {
-        System.out.println(ERROR_PREFIX + e.getMessage());
+    public static void renderException(Exception e, Integer trialNumber) {
+        System.out.println(ERROR_PREFIX + e.getMessage() + "(시도횟수 : " + trialNumber + ")");
     }
 
 

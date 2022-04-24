@@ -36,7 +36,8 @@ public class Application {
             userInputs.setNumberOfRound(numberOfRound);
         } catch (Exception error) {
             if(error.getMessage().equals("No line found")) throw error;
-            View.renderException(error);
+            userInputs.increaseOneTrial();
+            View.renderException(error, userInputs.getTrialNumber());
         }
     }
 }
