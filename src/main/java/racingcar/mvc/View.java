@@ -23,7 +23,12 @@ public class View {
         }
     }
 
-    public static void renderWinner(String name) {
-        System.out.println("최종 우승자는 " + name + " 입니다.");
+    public static void renderWinner(String[] names) {
+        ArrayList<String> textList = new ArrayList<>();
+        for (String name : names) {
+            textList.add(name);
+        }
+
+        System.out.println("최종 우승자는 " + String.join(", ", textList) + " 입니다.");
     }
 }

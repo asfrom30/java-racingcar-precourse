@@ -17,7 +17,9 @@
 7. 기능 : 공동 우승자 처리를 위한 기능 구현
 
 - ScoreMap의 whoIsMaxes() 함수 구현 (최고점을 복수형으로 반환)
+- whoIsMax 반환값 인터페이스를 String -> String[]으로 변경
 
 ### Backlog
 
 - refactor: 뷰쪽 메서드 쪼개기
+- refactor: View쪽 반복되는 String.join() 하나로 합치기.

@@ -38,4 +38,8 @@ public class Game {
     public String getWinnerName() {
         return scoreMap.whoIsMax();
     }
+
+    public String[] getWinnerNames(){
+        return scoreMap.whoIsMaxes();
+    }
 }
