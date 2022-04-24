@@ -1,20 +1,18 @@
 package racingcar.mvc;
 
-import racingcar.mvc.domain.ScoreMap;
+import racingcar.mvc.domain.ScoreBoard;
 import racingcar.utils.ArrayUtil;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
 
 public class View {
 
     private final static String SCORE_BAR = "-";
     private final static String ERROR_PREFIX = "[ERROR]";
 
-    public static void renderScoreBoard(ScoreMap scoreMap) {
-        for (String playerName : scoreMap.keyset()) {
-            renderPlayerScore(playerName, scoreMap.getScore(playerName));
+    public static void renderScoreBoard(ScoreBoard scoreBoard) {
+        for (String playerName : scoreBoard.keyset()) {
+            renderPlayerScore(playerName, scoreBoard.getScore(playerName));
         }
     }
 
@@ -22,13 +20,12 @@ public class View {
         System.out.println(playerName + " : " + scoreToString(score, SCORE_BAR));
     }
 
-    public static void renderWinner(String[] names) {
+    public static void renderWinners(String[] names) {
         System.out.println("최종 우승자는 " + String.join(", ", ArrayUtil.toArrayList(names)) + " 입니다.");
     }
 
     public static void renderException(Exception e) {
         System.out.println(ERROR_PREFIX + e.getMessage());
-
     }
 
 

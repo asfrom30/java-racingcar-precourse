@@ -4,38 +4,38 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
 
-    private String names[];
-    private ScoreMap scoreMap;
+    private String playerNames[];
+    private ScoreBoard scoreBoard;
     private int numberOfRound;
-    private int roundIndex;
+    private int currentRound;
 
     public Game(String[] playerNames, int numberOfRound) {
-        this.names = playerNames;
-        this.scoreMap = ScoreMap.from(playerNames);
+        this.playerNames = playerNames;
+        this.scoreBoard = ScoreBoard.from(playerNames);
         this.numberOfRound = numberOfRound;
-        this.roundIndex = 0;
+        this.currentRound = 0;
     }
 
     public void runOneRound() {
-        for (int j = 0; j < this.names.length; j++) {
-            String name = this.names[j];
+        for (int j = 0; j < this.playerNames.length; j++) {
+            String name = this.playerNames[j];
             int temp = Randoms.pickNumberInRange(0, 9);
-            if (4 <= temp) this.scoreMap.scoreOne(name);
+            if (4 <= temp) this.scoreBoard.scoreOne(name);
         }
 
-        this.roundIndex++;
+        this.currentRound++;
     }
 
-    public ScoreMap getScoreMap() {
-        return this.scoreMap;
+    public ScoreBoard getScoreBoard() {
+        return this.scoreBoard;
     }
 
     public boolean hasNextRound() {
-        if (roundIndex < this.numberOfRound) return true;
+        if (currentRound < this.numberOfRound) return true;
         else return false;
     }
 
-    public String[] getWinnerNames(){
-        return scoreMap.whoAreTopScorer();
+    public String[] getWinnerNames() {
+        return scoreBoard.whoAreTopScorer();
     }
 }

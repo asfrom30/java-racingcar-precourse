@@ -3,41 +3,41 @@ package racingcar.mvc.domain;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class ScoreMap {
+public class ScoreBoard {
 
-    public static ScoreMap from(String[] playerNames) {
-        ScoreMap scoreMap = new ScoreMap();
+    public static ScoreBoard from(String[] playerNames) {
+        ScoreBoard scoreBoard = new ScoreBoard();
 
         for (String name : playerNames) {
-            scoreMap.scores.put(name, 0);
+            scoreBoard.scoreMap.put(name, 0);
         }
 
-        return scoreMap;
+        return scoreBoard;
     }
 
-    private Map<String, Integer> scores;
+    private Map<String, Integer> scoreMap;
 
-    public ScoreMap() {
-        this.scores = new HashMap<>();
+    public ScoreBoard() {
+        this.scoreMap = new HashMap<>();
     }
 
     public void scoreOne(String playerName) {
-        int myScore = this.scores.get(playerName);
-        this.scores.replace(playerName, ++myScore);
+        int myScore = this.scoreMap.get(playerName);
+        this.scoreMap.replace(playerName, ++myScore);
     }
 
     public Iterator<Map.Entry<String, Integer>> iterator() {
-        return this.scores.entrySet().iterator();
+        return this.scoreMap.entrySet().iterator();
     }
 
     public String[] whoAreTopScorer() {
         int max = 0;
-        for (Entry<String, Integer> entry: this.scores.entrySet()) {
+        for (Entry<String, Integer> entry: this.scoreMap.entrySet()) {
             max = max < entry.getValue() ? entry.getValue() : max;
         }
 
         ArrayList<String> playerNames = new ArrayList<String>();
-        for (Entry<String, Integer> entry: this.scores.entrySet()) {
+        for (Entry<String, Integer> entry: this.scoreMap.entrySet()) {
             if(entry.getValue() == max) playerNames.add(entry.getKey());
         }
 
@@ -52,10 +52,10 @@ public class ScoreMap {
             }
         };
 
-        Entry<String, Integer> minEntry = Collections.min(this.scores.entrySet(), comparator);
+        Entry<String, Integer> minEntry = Collections.min(this.scoreMap.entrySet(), comparator);
 
         ArrayList<String> playerNames = new ArrayList<String>();
-        for (Entry<String, Integer> entry: this.scores.entrySet()) {
+        for (Entry<String, Integer> entry: this.scoreMap.entrySet()) {
             if(entry.getValue() == minEntry.getValue()) playerNames.add(entry.getKey());
         }
 
@@ -63,10 +63,10 @@ public class ScoreMap {
     }
 
     public Set<String> keyset() {
-        return this.scores.keySet();
+        return this.scoreMap.keySet();
     }
 
     public Integer getScore(String playerName) {
-        return this.scores.get(playerName);
+        return this.scoreMap.get(playerName);
     }
 }

@@ -4,7 +4,7 @@ import racingcar.mvc.View;
 import racingcar.mvc.controller.AppConsole;
 import racingcar.mvc.controller.UserInputs;
 import racingcar.mvc.domain.Game;
-import racingcar.mvc.domain.ScoreMap;
+import racingcar.mvc.domain.ScoreBoard;
 
 public class Application {
 
@@ -14,11 +14,10 @@ public class Application {
         Game game = new Game(userInputs.getPlayerNames(), userInputs.getNumberOfRound());
         while (game.hasNextRound()) {
             game.runOneRound();
-            ScoreMap scoreMap = game.getScoreMap();
-            View.renderScoreBoard(scoreMap);
+            View.renderScoreBoard(game.getScoreBoard());
         }
 
-        View.renderWinner(game.getWinnerNames());
+        View.renderWinners(game.getWinnerNames());
     }
     private static UserInputs readUserInputsUntilValid() {
         UserInputs userInputs = new UserInputs();
