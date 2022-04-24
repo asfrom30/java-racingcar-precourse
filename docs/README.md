@@ -14,4 +14,10 @@
 - 테스트 보강
 - whoIsMax(), whoIsMin() 함수 구현하기
 
-7. refactor: 뷰쪽 메서드 쪼개기
+7. 기능 : 공동 우승자 처리를 위한 기능 구현
+
+- ScoreMap의 whoIsMaxes() 함수 구현 (최고점을 복수형으로 반환)
+
+### Backlog
+
+- refactor: 뷰쪽 메서드 쪼개기

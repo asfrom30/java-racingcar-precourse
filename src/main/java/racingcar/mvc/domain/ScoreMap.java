@@ -46,11 +46,25 @@ public class ScoreMap {
             }
         };
 
-        Entry<String, Integer> minEtnry = Collections.min(this.scores.entrySet(), comparator);
-        return minEtnry.getKey();
+        Entry<String, Integer> minEntry = Collections.min(this.scores.entrySet(), comparator);
+        return minEntry.getKey();
     }
 
     public Iterator<Map.Entry<String, Integer>> iterator() {
         return this.scores.entrySet().iterator();
+    }
+
+    public String[] whoIsMaxes() {
+        int max = 0;
+        for (Entry<String, Integer> entry: this.scores.entrySet()) {
+            max = max < entry.getValue() ? entry.getValue() : max;
+        }
+
+        ArrayList<String> playerNames = new ArrayList<String>();
+        for (Entry<String, Integer> entry: this.scores.entrySet()) {
+            if(entry.getValue() == max) playerNames.add(entry.getKey());
+        }
+
+        return playerNames.toArray(new String[playerNames.size()]);
     }
 }
