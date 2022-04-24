@@ -19,6 +19,9 @@
    1. ScoreMap의 whoIsMaxes() 함수 구현 (최고점을 복수형으로 반환)
    2. whoIsMax 반환값 인터페이스를 String -> String[]으로 변경
    3. 리팩터링 : View 메서드 리팩터링
+   4. 테스트 : Game클래스에서 공동 우승자 선별하는 게임 테스트
+   5. 리팩터링 : 불필요한 메서드 삭제
+   6.
 
 ### Backlog
 

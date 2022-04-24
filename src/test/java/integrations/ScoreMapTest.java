@@ -16,8 +16,8 @@ public class ScoreMapTest {
 
         scoreMap.scoreOne("A");
 
-        assertThat(scoreMap.whoIsMax()).isEqualTo("A");
-        assertThat(scoreMap.whoIsMin()).isEqualTo("B");
+        assertThat(scoreMap.whoAreTopScorer()).containsExactly("A");
+        assertThat(scoreMap.whoAreBottomScorer()).containsExactly("B");
     }
 
     @Test
@@ -30,8 +30,8 @@ public class ScoreMapTest {
         scoreMap.scoreOne("B");
         scoreMap.scoreOne("B");
 
-        assertThat(scoreMap.whoIsMax()).isEqualTo("B");
-        assertThat(scoreMap.whoIsMin()).isEqualTo("A");
+        assertThat(scoreMap.whoAreTopScorer()).containsExactly("B");
+        assertThat(scoreMap.whoAreBottomScorer()).containsExactly("A");
     }
 
     @Test
@@ -47,8 +47,8 @@ public class ScoreMapTest {
         scoreMap.scoreOne("B");
         scoreMap.scoreOne("C");
 
-        assertThat(scoreMap.whoIsMax()).isEqualTo("A");
-        assertThat(scoreMap.whoIsMin()).isEqualTo("C");
+        assertThat(scoreMap.whoAreTopScorer()).containsExactly("A");
+        assertThat(scoreMap.whoAreBottomScorer()).containsExactly("C");
     }
 
     @Test
@@ -60,7 +60,7 @@ public class ScoreMapTest {
         scoreMap.scoreOne("A");
         scoreMap.scoreOne("B");
 
-        assertThat(scoreMap.whoIsMaxes()).containsExactly("A", "B");
+        assertThat(scoreMap.whoAreTopScorer()).containsExactly("A", "B");
     }
 
     @Test
@@ -73,7 +73,7 @@ public class ScoreMapTest {
         scoreMap.scoreOne("B");
         scoreMap.scoreOne("C");
 
-        assertThat(scoreMap.whoIsMaxes()).containsExactly("A", "B", "C");
+        assertThat(scoreMap.whoAreTopScorer()).containsExactly("A", "B", "C");
     }
 
 }

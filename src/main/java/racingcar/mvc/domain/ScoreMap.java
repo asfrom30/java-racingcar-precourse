@@ -26,35 +26,11 @@ public class ScoreMap {
         this.scores.replace(playerName, ++myScore);
     }
 
-    public String whoIsMax() {
-        Comparator<Entry<String, Integer>> comparator = new Comparator<Entry<String, Integer>>() {
-            @Override
-            public int compare(Entry<String, Integer> e1, Entry<String, Integer> e2) {
-                return e1.getValue().compareTo(e2.getValue());
-            }
-        };
-
-        Entry<String, Integer> maxEntry = Collections.max(this.scores.entrySet(), comparator);
-        return maxEntry.getKey();
-    }
-
-    public String whoIsMin() {
-        Comparator<Entry<String, Integer>> comparator = new Comparator<Entry<String, Integer>>() {
-            @Override
-            public int compare(Entry<String, Integer> e1, Entry<String, Integer> e2) {
-                return e1.getValue().compareTo(e2.getValue());
-            }
-        };
-
-        Entry<String, Integer> minEntry = Collections.min(this.scores.entrySet(), comparator);
-        return minEntry.getKey();
-    }
-
     public Iterator<Map.Entry<String, Integer>> iterator() {
         return this.scores.entrySet().iterator();
     }
 
-    public String[] whoIsMaxes() {
+    public String[] whoAreTopScorer() {
         int max = 0;
         for (Entry<String, Integer> entry: this.scores.entrySet()) {
             max = max < entry.getValue() ? entry.getValue() : max;
@@ -63,6 +39,24 @@ public class ScoreMap {
         ArrayList<String> playerNames = new ArrayList<String>();
         for (Entry<String, Integer> entry: this.scores.entrySet()) {
             if(entry.getValue() == max) playerNames.add(entry.getKey());
+        }
+
+        return playerNames.toArray(new String[playerNames.size()]);
+    }
+
+    public String[] whoAreBottomScorer() {
+        Comparator<Entry<String, Integer>> comparator = new Comparator<Entry<String, Integer>>() {
+            @Override
+            public int compare(Entry<String, Integer> e1, Entry<String, Integer> e2) {
+                return e1.getValue().compareTo(e2.getValue());
+            }
+        };
+
+        Entry<String, Integer> minEntry = Collections.min(this.scores.entrySet(), comparator);
+
+        ArrayList<String> playerNames = new ArrayList<String>();
+        for (Entry<String, Integer> entry: this.scores.entrySet()) {
+            if(entry.getValue() == minEntry.getValue()) playerNames.add(entry.getKey());
         }
 
         return playerNames.toArray(new String[playerNames.size()]);
