@@ -67,4 +67,12 @@ public class ScoreMap {
 
         return playerNames.toArray(new String[playerNames.size()]);
     }
+
+    public Set<String> keyset() {
+        return this.scores.keySet();
+    }
+
+    public Integer getScore(String playerName) {
+        return this.scores.get(playerName);
+    }
 }

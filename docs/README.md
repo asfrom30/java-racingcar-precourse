@@ -14,12 +14,14 @@
 - 테스트 보강
 - whoIsMax(), whoIsMin() 함수 구현하기
 
-7. 기능 : 공동 우승자 처리를 위한 기능 구현
+7. 기능 : 공동 우승자 처리를 위한 기능 구현 (우승자가 한명일 경우. 쉼표(,)로 이름을 구분해 출력한다.)
 
-- ScoreMap의 whoIsMaxes() 함수 구현 (최고점을 복수형으로 반환)
-- whoIsMax 반환값 인터페이스를 String -> String[]으로 변경
+   1. ScoreMap의 whoIsMaxes() 함수 구현 (최고점을 복수형으로 반환)
+   2. whoIsMax 반환값 인터페이스를 String -> String[]으로 변경
+   3. 리팩터링 : View 메서드 리팩터링
 
 ### Backlog
 
 - refactor: 뷰쪽 메서드 쪼개기
 - refactor: View쪽 반복되는 String.join() 하나로 합치기.
+- Player와 Score를 더한 개념으로 추상화를 한번 더 하는게 좋을까?

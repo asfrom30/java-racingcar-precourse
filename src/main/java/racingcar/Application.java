@@ -11,7 +11,6 @@ public class Application {
     public static void main(String[] args) {
         String[] names = Controller.waitTypePlayerNames();
         int numberOfRound = Controller.waitTypeHowManyRound();
-        ;
 
         Game game = new Game(names, numberOfRound);
         while (game.hasNextRound()) {
