@@ -9,10 +9,10 @@ import racingcar.mvc.domain.ScoreMap;
 public class Application {
 
     public static void main(String[] args) {
-        String[] names = Controller.waitTypePlayerNames();
-        int numberOfRound = Controller.waitTypeHowManyRound();
+        String[] playerNames = Controller.waitTypePlayerNames();
+        Integer numberOfRound = Controller.waitTypeHowManyRound();
 
-        Game game = new Game(names, numberOfRound);
+        Game game = new Game(playerNames, numberOfRound);
         while (game.hasNextRound()) {
             game.runOneRound();
             ScoreMap scoreMap = game.getScoreMap();

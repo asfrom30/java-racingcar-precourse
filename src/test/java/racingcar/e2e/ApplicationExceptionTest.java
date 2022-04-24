@@ -17,10 +17,10 @@ class ApplicationExceptionTest extends NsTest {
 
     @Test
     @DisplayName("5글자를 초과하는 이름은 허용하지 않는다.")
-    void 이름에_대한_예외_처리_추가() {
+    void test_1() {
         assertSimpleTest(
                 () -> {
-                    runException("12345,1234");
+                    runException("123456,1234");
                     assertThat(output()).contains(ERROR_MESSAGE);
                 }
         );
